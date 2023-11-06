@@ -8,6 +8,8 @@ public abstract class Program
 
 
         builder.Services.AddServices();
+
+      
         builder.Services.AddControllersWithViews();
         builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>
             policy.WithOrigins("http://localhost:4200", "https://localhost:4200").AllowAnyHeader().AllowAnyMethod().AllowCredentials()
@@ -32,7 +34,7 @@ public abstract class Program
             name: "default",
             pattern: "{controller=Home}/{action=Index}/{id?}");
 
-
+        DataSeeding.Seed(builder.Services.BuildServiceProvider());
 
 
         app.Run();

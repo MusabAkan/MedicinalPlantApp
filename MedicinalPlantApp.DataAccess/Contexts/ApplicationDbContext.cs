@@ -10,6 +10,5 @@ namespace MedicinalPlantApp.DataAccess.Contexts
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => optionsBuilder.UseSqlServer(Configuration.ConnectionString);
         public DbSet<PlantImage> PlantImages { get; set; }
         public DbSet<Plant> Plants { get; set; }
-        public DbSet<Complaint> Complaints { get; set; }
     }
 }

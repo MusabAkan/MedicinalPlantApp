@@ -13,7 +13,7 @@ namespace MedicinalPlantApp.DataAccess
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.ConnectionString));
             services.AddScoped<IPlantDal, EfPlantDal>();
             services.AddScoped<IPlantImageDal, EfPlantImageDal>();
-            services.AddScoped<IComplaintDal, EfComplaintDal>();
+        
         }
     }
 

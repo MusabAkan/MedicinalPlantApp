@@ -9,9 +9,6 @@ namespace MedicinalPlantApp.Entities
         public DateTime UpdatedDate { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public Complaint Complaint { get; set; }
-        public Guid ComplaintId { get; set; }
         public PlantImage? PlantImage { get; set; }
-        public Guid? PlantImageId { get; set; }
     }
 }
