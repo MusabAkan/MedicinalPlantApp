@@ -25,16 +25,27 @@ namespace MedicinalPlantApp.Web.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult Add(PlantDto model)
         {
-            var plant = new Plant
+            if (model.Description != null && model.Name != null)
             {
-                Name = model.Name,
-                Description = model.Description,
-                CreatedDate = DateTime.Now,
-                Id = Guid.NewGuid()
-            };
+                var plant = new Plant
+                {
+                    Name = model.Name,
+                    Description = model.Description,
+                    CreatedDate = DateTime.Now,
+                    Id = Guid.NewGuid()
+                };
+                _plantService.Add(plant);
+               
+            }
+            return RedirectToAction("Index");
+        }
 
-            _plantService.Add(plant);
-
+        [HttpPost]
+        public IActionResult Delete(string id)
+        {
+            var result = _plantService.GetById(id);
+            if (result.Success)
+                _plantService.Delete(result.Data);
             return RedirectToAction("Index");
         }
     }

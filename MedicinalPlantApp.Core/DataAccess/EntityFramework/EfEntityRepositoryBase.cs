@@ -47,7 +47,7 @@ namespace MedicinalPlantApp.Core.DataAccess.EntityFramework
             }
         }
 
-        public int Update(TEntity entity)
+        public bool Update(TEntity entity)
         {
             using (var context = new TContext())
             {
