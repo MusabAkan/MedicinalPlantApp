@@ -31,13 +31,35 @@ namespace MedicinalPlantApp.Web.Areas.Admin.Controllers
                 {
                     Name = model.Name,
                     Description = model.Description,
-                    CreatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Now,
                     Id = Guid.NewGuid()
                 };
                 _plantService.Add(plant);
                
             }
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult Update(PlantDto model)
+        {
+            _plantService.Update(new Plant
+            {
+                Id = Guid.Parse(model.Id),
+                UpdatedDate = DateTime.Now,
+                Description = model.Description,
+                Name = model.Name
+            });
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult GetById(string id)
+        {
+            var result = _plantService.GetById(id);
+            if (result.Success)
+                return new JsonResult(result.Data);
+            return BadRequest(result.Message);
         }
 
         [HttpPost]

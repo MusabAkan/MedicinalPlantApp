@@ -17,13 +17,13 @@ namespace MedicinalPlantApp.DataAccess
                             new Plant
                             {
                                 Id = Guid.NewGuid(),
-                                CreatedDate = DateTime.Now,
+                                UpdatedDate = DateTime.Now,
                                 Name = "Karayılan Otu",
                                 Description = "Ateş basması ve menopoz tedavisi için kullanılan bir bitkidir.",
                                 PlantImage = new PlantImage()
                                 {
                                     Id = Guid.NewGuid(),
-                                    CreatedDate = DateTime.Now,
+                                    UpdatedDate = DateTime.Now,
                                     FileName = "Karayılan Otu",
                                     Path = "wwwroot/PlantImage/KarayılanOtu.jpg"
                                 }
@@ -31,13 +31,13 @@ namespace MedicinalPlantApp.DataAccess
                             new Plant
                             {
                                 Id = Guid.NewGuid(),
-                                CreatedDate = DateTime.Now,
+                                UpdatedDate = DateTime.Now,
                                 Name = "Yabani Yer Elması",
                                 Description = "Östrojen etkisi ile hormon tedavilerinde elzem bir bitkidir.",
                                 PlantImage = new PlantImage()
                                 {
                                     Id = Guid.NewGuid(),
-                                    CreatedDate = DateTime.Now,
+                                    UpdatedDate = DateTime.Now,
                                     FileName = "Karayılan Otu",
                                     Path = "wwwroot/PlantImage/YabaniYerElması.jpg"
                                 }
@@ -45,13 +45,13 @@ namespace MedicinalPlantApp.DataAccess
                             new Plant
                             {
                                 Id = Guid.NewGuid(),
-                                CreatedDate = DateTime.Now,
+                                UpdatedDate = DateTime.Now,
                                 Name = "Aslan Kuyruğu",
                                 Description = "Sakinleştirici ve uyuşturucu etkisi ile depresyon tedavilerinde kullanılır.",
                                 PlantImage = new PlantImage()
                                 {
                                     Id = Guid.NewGuid(),
-                                    CreatedDate = DateTime.Now,
+                                    UpdatedDate = DateTime.Now,
                                     FileName = "Karayılan Otu",
                                     Path = "wwwroot/PlantImage/AslanKuyruğu.jpg"
                                 }
@@ -59,14 +59,14 @@ namespace MedicinalPlantApp.DataAccess
                             new Plant
                             {
                                 Id = Guid.NewGuid(),
-                                CreatedDate = DateTime.Now,
+                                UpdatedDate = DateTime.Now,
                                 Name = "Adaçayı",
                                 Description = "Cilde olan faydaları nedeni ile modern dünyada türlü kozmetik malzemenin içeriğinde kullanılır. Şifa bitkileri arasında olan adaçayı geçmişten bugüne kötü enerjiyi temizlemek için de yakılmakta ve dumanı tütsü gibi alanlarda gezdirilmektedir."
                             },
                             new Plant
                             {
                                 Id = Guid.NewGuid(),
-                                CreatedDate = DateTime.Now,
+                                UpdatedDate = DateTime.Now,
                                 Name = "Ginseng",
                                 Description = "Merkezi sinir sistemi hastalıklarında ve yaşlanma karşıtı ilaçlarda kullanılan ginseng yüzyıllardır bilinir."
                             }
