@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using MedicinalPlantApp.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace MedicinalPlantApp.DataAccess.Concrete
 {
@@ -7,7 +8,10 @@ namespace MedicinalPlantApp.DataAccess.Concrete
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("@server")
+            optionsBuilder.UseSqlServer("@Server=(localdb)\\MSSQLLocalDB;Database=MedicinalPlantDb");
         }
+        public DbSet<PlantImage> PlantImages { get; set; }
+        public DbSet<Plant> Plants { get; set; }
+        public DbSet<Complaint> Complaints { get; set; }
     }
 }

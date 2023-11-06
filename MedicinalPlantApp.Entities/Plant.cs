@@ -11,8 +11,7 @@ namespace MedicinalPlantApp.Entities
         public string Description { get; set; }
         public Complaint Complaint { get; set; }
         public Guid ComplaintId { get; set; }
-        public Image? Image { get; set; }
+        public PlantImage? PlantImage { get; set; }
         public Guid? ImageId { get; set; }
-      
     }
 }

@@ -2,7 +2,7 @@
 
 namespace MedicinalPlantApp.Entities
 {
-    public class Image : IEntity
+    public class PlantImage : IEntity
     {
         public Guid Id { get; set; }
         public DateTime CreatedDate { get; set; }
