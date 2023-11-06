@@ -312,8 +312,8 @@
                         <h2>Şifalı <b>Bitkiler</b></h2>
                     </div>
                     <div class="col-sm-6">
-                        <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Yeni Oluştur</span></a>
-                        <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Sil</span></a>
+                        <a href="#addPlantModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Yeni Oluştur</span></a>
+                        <a href="#deletePlantModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Sil</span></a>
                     </div>
                 </div>
             </div>
@@ -350,8 +350,8 @@
                             <td>@(item.UpdatedDate == new DateTime(1, 1, 1) ? string.Empty : item.UpdatedDate.ToString("yy-MM-dd HH:ss")) </td>
 
                             <td>
-                                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Güncelle">&#xE254;</i></a>
-                                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Sil">&#xE872;</i></a>
+                                <a href="#editPlantModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Güncelle">&#xE254;</i></a>
+                                <a href="#deletePlantModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Sil">&#xE872;</i></a>
                             </td>
                         </tr>
                     }
@@ -374,32 +374,25 @@
         </div>
     </div>
 </div>
-<!-- Edit Modal HTML -->
-<div id="addEmployeeModal" class="modal fade">
+<!-- Add  -->
+<div id="addPlantModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form>
+            <form method="post" asp-area="Admin" asp-controller="Home" asp-action="Add">
                 <div class="modal-header">
-                    <h4 class="modal-title">Add Employee</h4>
+                    <h4 class="modal-title">Add Plant</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" class="form-control" required>
+                        <label>Şifa Bitki Adı</label>
+                        @Html.TextBox("Name",null, new{@class ="form-control"})
                     </div>
                     <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" class="form-control" required>
+                        <label>Özelliği</label>
+                        @Html.TextBox("Description",null, new{@class ="form-control"})
                     </div>
-                    <div class="form-group">
-                        <label>Address</label>
-                        <textarea class="form-control" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Phone</label>
-                        <input type="text" class="form-control" required>
-                    </div>
+
                 </div>
                 <div class="modal-footer">
                     <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
@@ -409,13 +402,13 @@
         </div>
     </div>
 </div>
-<!-- Edit Modal HTML -->
-<div id="editEmployeeModal" class="modal fade">
+<!-- Edit -->
+<div id="editPlantModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <form>
                 <div class="modal-header">
-                    <h4 class="modal-title">Edit Employee</h4>
+                    <h4 class="modal-title">Edit Plant</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">
@@ -444,13 +437,13 @@
         </div>
     </div>
 </div>
-<!-- Delete Modal HTML -->
-<div id="deleteEmployeeModal" class="modal fade">
+<!-- Delete -->
+<div id="deletePlantModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <form>
                 <div class="modal-header">
-                    <h4 class="modal-title">Delete Employee</h4>
+                    <h4 class="modal-title">Delete Plant</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">

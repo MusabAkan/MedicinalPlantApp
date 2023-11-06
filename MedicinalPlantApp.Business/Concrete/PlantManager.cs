@@ -13,27 +13,27 @@ namespace MedicinalPlantApp.Business.Concrete
 
         public IDataResult<Plant> GetById(string PlantId)
         {
-            return new SuccessDataResult<Plant>(_plantDal.Get(p => p.Id == Guid.Parse(PlantId)));
+            return new ResponseDataResult<Plant>(_plantDal.Get(p => p.Id == Guid.Parse(PlantId)));
         }
 
         public IDataResult<List<Plant>> GetList()
         {
-            return new SuccessDataResult<List<Plant>>(_plantDal.GetList().ToList());
+            return new ResponseDataResult<List<Plant>>(_plantDal.GetList().ToList());
         }
 
         public IResult Add(Plant Plant)
         {
-            throw new NotImplementedException();
+            return new ResponseResult(_plantDal.Add(Plant));
         }
 
         public IResult Delete(Plant Plant)
         {
-            throw new NotImplementedException();
+            return new ResponseResult(_plantDal.Delete(Plant));
         }
 
         public IResult Update(Plant Plant)
         {
-            throw new NotImplementedException();
+            return new ResponseResult(_plantDal.Update(Plant));
         }
     }
 }

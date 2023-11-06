@@ -9,23 +9,23 @@ namespace MedicinalPlantApp.Core.DataAccess.EntityFramework
         where TEntity : class, IEntity, new()
         where TContext : DbContext, new()
     {
-        public void Add(TEntity entity)
+        public bool Add(TEntity entity)
         {
             using (var context = new TContext())
             {
                 var addedEntity = context.Entry(entity);
                 addedEntity.State = EntityState.Added;
-                context.SaveChanges();
+                return context.SaveChanges() == 1;
             }
         }
 
-        public void Delete(TEntity entity)
+        public bool Delete(TEntity entity)
         {
             using (var context = new TContext())
             {
                 var deletedEntity = context.Entry(entity);
                 deletedEntity.State = EntityState.Deleted;
-                context.SaveChanges();
+                return context.SaveChanges() == 1;
             }
         }
 
@@ -47,13 +47,13 @@ namespace MedicinalPlantApp.Core.DataAccess.EntityFramework
             }
         }
 
-        public void Update(TEntity entity)
+        public int Update(TEntity entity)
         {
             using (var context = new TContext())
             {
                 var updatedEntity = context.Entry(entity);
                 updatedEntity.State = EntityState.Modified;
-                context.SaveChanges();
+                return context.SaveChanges() == 1;
             }
         }
     }
