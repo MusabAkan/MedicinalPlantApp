@@ -1,5 +1,4 @@
-﻿using System.Diagnostics.Contracts;
-using MedicinalPlantApp.DataAccess.Contexts;
+﻿using MedicinalPlantApp.DataAccess.Contexts;
 using MedicinalPlantApp.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;

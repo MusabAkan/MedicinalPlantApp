@@ -19,11 +19,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MedicinalPlantApp.Entities\MedicinalPlantApp.Entities.csproj" />
+    <Folder Include="Concrete\EntityFramework\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Concrete\EntityFramework\" />
+    <ProjectReference Include="..\MedicinalPlantApp.Core\MedicinalPlantApp.Core.csproj" />
+    <ProjectReference Include="..\MedicinalPlantApp.Entities\MedicinalPlantApp.Entities.csproj" />
   </ItemGroup>
 
 </Project>

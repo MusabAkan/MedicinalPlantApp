@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MedicinalPlantApp.DataAccess\MedicinalPlantApp.DataAccess.csproj" />
+    <ProjectReference Include="..\MedicinalPlantApp.Business\MedicinalPlantApp.Business.csproj" />
   </ItemGroup>
 
 </Project>

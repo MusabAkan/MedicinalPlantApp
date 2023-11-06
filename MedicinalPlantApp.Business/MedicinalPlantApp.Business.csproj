@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MedicinalPlantApp.DataAccess\MedicinalPlantApp.DataAccess.csproj" />
+    <ProjectReference Include="..\MedicinalPlantApp.Entities\MedicinalPlantApp.Entities.csproj" />
+  </ItemGroup>
+
 </Project>
