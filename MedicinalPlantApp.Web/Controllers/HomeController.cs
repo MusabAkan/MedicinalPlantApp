@@ -1,4 +1,7 @@
-﻿using MedicinalPlantApp.Web.Models;
+﻿using MedicinalPlantApp.Business.Abstract;
+using MedicinalPlantApp.Business.Concrete;
+using MedicinalPlantApp.DataAccess.Concrete;
+using MedicinalPlantApp.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -6,16 +9,13 @@ namespace MedicinalPlantApp.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
-
+        readonly IPlantService _plantService = new PlantManager(new EfPlantDal());
         public IActionResult Index()
         {
-            return View();
+            var result = _plantService.GetList();
+            if (result.Success)
+                return View(result.Data);
+            return BadRequest(result.Message);          
         }
 
         public IActionResult Privacy()

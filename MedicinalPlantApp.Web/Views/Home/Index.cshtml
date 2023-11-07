@@ -1,12 +1,30 @@
-﻿@{
+﻿@model IEnumerable<MedicinalPlantApp.Entities.Plant>
+@{
     ViewData["Title"] = "Home Page";
     Layout = "_Layout";
 }
 
 <div class="container-xl">
     <div class="table-responsive">
-        <a class="btn btn-success"  asp-area="Admin" asp-controller="Home" asp-action="Index">Admin Panel İçin Lütfen Tıklayınız. </a>
+        <a class="btn btn-success" asp-area="Admin" asp-controller="Home" asp-action="Index">Admin Panel İçin Lütfen Tıklayınız. </a>
+    </div>
+    <br />
+    <div class="row">
+        @foreach (var item in Model.OrderByDescending(x => x.UpdatedDate))
+        {
+
+            <div class="row m-3">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top"
+                         src="@(item.PlantImage != null ? item.PlantImage.Path : @"PlantImage\default.jpg")"
+                         alt="@(item.PlantImage != null ? item.PlantImage.FileName : "default")">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <p class="card-text">@item.Description</p>
+                    </div>
+                </div>
+            </div>
+        }
     </div>
 </div>
 
- 
