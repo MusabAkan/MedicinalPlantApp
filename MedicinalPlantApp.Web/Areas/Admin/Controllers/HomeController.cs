@@ -4,7 +4,6 @@ using MedicinalPlantApp.DataAccess.Concrete;
 using MedicinalPlantApp.Entities;
 using MedicinalPlantApp.Web.Areas.Admin.Models;
 using Microsoft.AspNetCore.Mvc;
-using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace MedicinalPlantApp.Web.Areas.Admin.Controllers
 {
@@ -13,8 +12,7 @@ namespace MedicinalPlantApp.Web.Areas.Admin.Controllers
     {
         readonly IPlantService _plantService = new PlantManager(new EfPlantDal());
         readonly IPlantImageService _plantImageService = new PlantImageManager(new EfPlantImageDal());
-        readonly IHostingEnvironment Environment;
-
+       
         //GET: Plants
         [HttpGet]
         public IActionResult Index()
@@ -38,6 +36,7 @@ namespace MedicinalPlantApp.Web.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult Add(PlantDto model)
         {
+           
             if (model.Description != null && model.Name != null)
             {
                 var plant = new Plant
@@ -48,7 +47,6 @@ namespace MedicinalPlantApp.Web.Areas.Admin.Controllers
                     Id = Guid.NewGuid()
                 };
                 _plantService.Add(plant);
-
             }
             return RedirectToAction("Index");
         }
