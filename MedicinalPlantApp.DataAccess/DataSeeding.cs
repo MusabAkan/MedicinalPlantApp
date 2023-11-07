@@ -25,7 +25,7 @@ namespace MedicinalPlantApp.DataAccess
                                     Id = Guid.NewGuid(),
                                     UpdatedDate = DateTime.Now,
                                     FileName = "Karayılan Otu",
-                                    Path = "wwwroot/PlantImage/KarayılanOtu.jpg"
+                                    Path = "PlantImage/KarayılanOtu.jpg"
                                 }
                             },
                             new Plant
@@ -38,8 +38,8 @@ namespace MedicinalPlantApp.DataAccess
                                 {
                                     Id = Guid.NewGuid(),
                                     UpdatedDate = DateTime.Now,
-                                    FileName = "Karayılan Otu",
-                                    Path = "wwwroot/PlantImage/YabaniYerElması.jpg"
+                                    FileName = "Yabani Yer Elması",
+                                    Path = "PlantImage/YabaniYerElması.jpg"
                                 }
                             },
                             new Plant
@@ -52,8 +52,8 @@ namespace MedicinalPlantApp.DataAccess
                                 {
                                     Id = Guid.NewGuid(),
                                     UpdatedDate = DateTime.Now,
-                                    FileName = "Karayılan Otu",
-                                    Path = "wwwroot/PlantImage/AslanKuyruğu.jpg"
+                                    FileName = "Aslan Kuyruğu",
+                                    Path = "PlantImage/AslanKuyruğu.jpg"
                                 }
                             },
                             new Plant

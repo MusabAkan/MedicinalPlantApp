@@ -1,4 +1,7 @@
-﻿@model IEnumerable<MedicinalPlantApp.Entities.Plant>
+﻿@using MedicinalPlantApp.Web.Extensions
+@model IEnumerable<MedicinalPlantApp.Entities.Plant>
+
+
 @{
     ViewData["Title"] = "Home Page";
     Layout = "_Layout";
@@ -16,8 +19,8 @@
             <div class="row m-3">
                 <div class="card" style="width: 18rem;">
                     <img class="card-img-top"
-                         src="@(item.PlantImage != null ? item.PlantImage.Path : @"PlantImage\default.jpg")"
-                         alt="@(item.PlantImage != null ? item.PlantImage.FileName : "default")">
+                         src="@Html.GetPlantImagePath(item.PlantImageId.ToString())"
+                         alt="@Html.GetPlantImageFileName(item.PlantImageId.ToString())">
                     <div class="card-body">
                         <h5 class="card-title">@item.Name</h5>
                         <p class="card-text">@item.Description</p>

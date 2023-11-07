@@ -10,6 +10,7 @@ namespace MedicinalPlantApp.Web.Controllers
     public class HomeController : Controller
     {
         readonly IPlantService _plantService = new PlantManager(new EfPlantDal());
+
         public IActionResult Index()
         {
             var result = _plantService.GetList();
