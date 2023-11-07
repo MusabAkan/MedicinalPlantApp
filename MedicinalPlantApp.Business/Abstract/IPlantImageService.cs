@@ -7,5 +7,6 @@ namespace MedicinalPlantApp.Business.Abstract
     {
         IDataResult<PlantImage> GetById(string PlantImageId);
         IDataResult<List<PlantImage>> GetList();
+        IResult Delete(PlantImage plantImage);
     }
 }

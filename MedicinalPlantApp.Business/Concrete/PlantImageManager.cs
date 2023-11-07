@@ -18,5 +18,12 @@ namespace MedicinalPlantApp.Business.Concrete
         {
             return new ResponseDataResult<List<PlantImage>>(_plantImageDal.GetList().ToList());
         }
+        public IResult Delete(PlantImage plantImage)
+        {
+            string pathCombine = Path.Combine(Directory.GetCurrentDirectory(), $@"wwwroot\{plantImage.Path}");
+            if (File.Exists(pathCombine))
+                File.Delete(pathCombine);
+            return new ResponseResult(_plantImageDal.Delete(plantImage));
+        }
     }
 }

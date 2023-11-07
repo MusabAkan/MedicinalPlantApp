@@ -1,6 +1,7 @@
 ﻿using Core.Utilities.Results;
 using MedicinalPlantApp.Business.Abstract;
 using MedicinalPlantApp.DataAccess.Abstract;
+using MedicinalPlantApp.DataAccess.Concrete;
 using MedicinalPlantApp.Entities;
 
 namespace MedicinalPlantApp.Business.Concrete
@@ -8,8 +9,13 @@ namespace MedicinalPlantApp.Business.Concrete
     public class PlantManager : IPlantService
     {
         readonly IPlantDal _plantDal;
+        readonly IPlantImageService _plantImageService;
 
-        public PlantManager(IPlantDal plantDal) => _plantDal = plantDal;
+        public PlantManager(IPlantDal plantDal)
+        {
+            _plantImageService = new PlantImageManager(new EfPlantImageDal());
+            _plantDal = plantDal;
+        }
 
         public IDataResult<Plant> GetById(string PlantId)
         {
@@ -26,9 +32,18 @@ namespace MedicinalPlantApp.Business.Concrete
             return new ResponseResult(_plantDal.Add(Plant));
         }
 
-        public IResult Delete(Plant Plant)
+        public IResult Delete(Plant plant)
         {
-            return new ResponseResult(_plantDal.Delete(Plant));
+            var backupData = plant;
+            _plantDal.Delete(plant);
+            if (backupData.PlantImageId != null)
+            {
+                var result = _plantImageService.GetById(backupData.PlantImageId.ToString());
+                if (result != null)
+                    _plantImageService.Delete(result.Data);
+            }
+            return new ResponseResult(true);
+
         }
 
         public IResult Update(Plant Plant)
