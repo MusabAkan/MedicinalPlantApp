@@ -46,7 +46,7 @@ namespace MedicinalPlantApp.DataAccess.Migrations
 
                     b.HasIndex("PlantImageId");
 
-                    b.ToTable("Plants");
+                    b.ToTable("Plants", (string)null);
                 });
 
             modelBuilder.Entity("MedicinalPlantApp.Entities.PlantImage", b =>
@@ -68,7 +68,7 @@ namespace MedicinalPlantApp.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PlantImages");
+                    b.ToTable("PlantImages", (string)null);
                 });
 
             modelBuilder.Entity("MedicinalPlantApp.Entities.Plant", b =>

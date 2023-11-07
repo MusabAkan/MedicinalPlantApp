@@ -33,6 +33,7 @@ namespace MedicinalPlantApp.Core.DataAccess.EntityFramework
         {
             using (var context = new TContext())
             {
+                if (filter == null) return new TEntity();
                 return context.Set<TEntity>().SingleOrDefault(filter);
             }
         }
